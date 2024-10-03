@@ -9,6 +9,50 @@
     
 </head>
 <body>
-    
+    <header>
+        <h1>Personajes de DC y Marvel</h1>
+        <nav>
+            <ul>
+                <li><a href="#dc">DC</a></li>
+                <li><a href="#marvel">Marvel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dc">
+            <h2>Personajes de DC</h2>
+            <div class="tarjetas-container dc-container"></div>
+        </section>
+
+        <section id="marvel">
+            <h2>Personajes de Marvel</h2>
+            <div class="tarjetas-container marvel-container"></div>
+        </section>
+
+        <section id="batalla">
+            <h2>Batalla</h2>
+            <div id="batalla-info"></div>
+            <button id="iniciar-batalla">Iniciar Batalla</button>
+        </section>
+    </main>
+
+    <!-- Diálogo Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-nombre"></h2>
+            <p><strong>Nombre real:</strong> <span id="modal-nombre-real"></span></p>
+            <p><strong>Biografía:</strong> <span id="modal-biografia"></span></p>
+            <p><strong>Resistencia:</strong> <span id="modal-resistencia"></span></p>
+            <p><strong>Fuerza de ataque:</strong> <span id="modal-fuerza"></span></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Personajes de DC y Marvel</p>
+    </footer>
+
+    <script src="superdc.js"></script>
 </body>
 </html>
