@@ -1,51 +1,58 @@
 document.addEventListener("DOMContentLoaded", () => {
-fetch("personajes.json")
-.then(response => response.json())
-.then(data => {
-    cargarPersonajes(data.dc, '.dc-container');
-    cargarPersonajes(data.marvel, '.marvel-container');
-})
-.catch(error => console.error('Error al cargar los personajes:', error));
+    const container = document.getElementById("container");
+    const dialog = document.getElementById("modal");
+    const modalcontent = document.getElementById("modalcontent");
 
-function cargarPersonajes(personajes, containerSelector) {
-const container = document.querySelector(containerSelector);
-personajes.forEach(personaje => {
-    const tarjeta = document.createElement("div");
-    tarjeta.classList.add("tarjeta");
 
-    tarjeta.innerHTML = `
-        <img src="${personaje.imagen}" alt="${personaje.nombre}" width="100">
-        <h3>${personaje.nombre}</h3>
-        <p>Año de aparición: ${personaje.anio_aparicion}</p>
-    `;
+    function mostrar(personaje) {
+        personaje.forEach(personajes => {
+            const contenedor = document.createElement("div");
+            contenedor.classList.add("personajes-contenedor");
+            contenedor.innerHTML = `
+            <img src="${personajes.imagen}" alt="${personajes.nombre}">
+                <h3>${personajes.nombre}</h3>
+                `;
 
-    tarjeta.addEventListener("click", () => mostrarDetalle(personaje));
-    container.appendChild(tarjeta);
-});
+            contenedor.addEventListener('click',()=>{
+                modalcontent.innerHTML=`
+                <h2>${personajes.nombre}</h2>
+                <img src="${personajes.imagen}" alt="${personajes.nombre}">
+                <p><strong>nombre real:</strong>${personajes.nombre_real}</p>
+                <p><strong>biografia:</strong>${personajes.biografia}</p>
+                <p><strong>resistencia:</strong>${personajes.resistencia}</p>
+                <p><strong>fuerza:</strong>${personajes.fuerza}</p>
+                <p><strong>anio_aparicion:</strong>${personajes.anio_aparicion}</p>
+                `;
+                dialog.showModal();
+            })
+            
+            container.appendChild(contenedor);
+        });
+    
 }
-
-function mostrarDetalle(personaje) {
-document.getElementById("modal-nombre").innerText = personaje.nombre;
-document.getElementById("modal-nombre-real").innerText = personaje.nombre_real;
-document.getElementById("modal-biografia").innerText = personaje.biografia;
-document.getElementById("modal-resistencia").innerText = personaje.resistencia;
-document.getElementById("modal-fuerza").innerText = personaje.fuerza;
-
-const modal = document.getElementById("modal");
-modal.style.display = "block";
-
-const closeModal = document.querySelector(".close");
-closeModal.onclick = () => {
-    modal.style.display = "none";
-};
-
-window.onclick = (event) => {
-    if (event.target === modal) {
-        modal.style.display = "none";
+async function personajesfetch(){
+    try{
+        const res= await fetch('personajes.json');
+        if(!res.ok){
+            throw new Error("se aproducido un error");   
+        }
+        const personaje= await res.json();
+        mostrar(personaje);
+    }catch(error){
+        console.error(error);
     }
-};
 }
-
-document.getElementById("iniciar-batalla").addEventListener("click", () => {
-document.getElementById("batalla-info").innerText = "¡La batalla ha comenzado!";
+personajesfetch();
+const buttonclose = document.getElementById("button-class");
+buttonclose.addEventListener('click',()=>{
+    dialog.close();
 });
+})  
+
+
+
+
+
+
+
+

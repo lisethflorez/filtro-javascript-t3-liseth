@@ -1,0 +1,42 @@
+[ 
+
+       { 
+            "nombre": "Batman",
+            "nombre_real": "Bruce Wayne",
+            "biografia": "Huérfano que lucha contra el crimen en Gotham City.",
+            "resistencia":"Alta",
+            "fuerza": "Media",
+            "anio_aparicion": 1939,
+            "imagen" : "https://bandai.com.mx/blog/wp-content/uploads/2019/09/Historia-de-Batman-el-superhe%CC%81roe-ma%CC%81s-popular-en-la-era-digital-copia-1.jpg"
+        },
+        
+        {  "nombre": "Superman",
+            "nombre_real": "Clark Kent",
+            "biografia": "El último hijo de Krypton que defiende la Tierra.",
+            "resistencia": "Extrema",
+            "fuerza": "Extrema",
+            "anio_aparicion": 1938,
+            "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdHGyUUBvY-eqtImgijNdT8Cq_TA2-wDEzGA&s"
+        },  
+
+         
+        {  "nombre": "Spider-Man",
+            "nombre_real": "Peter Parker",
+            "biografia": "Un joven mordido por una araña radiactiva.",
+            "resistencia": "Media",
+            "fuerza": "Media",
+            "anio_aparicion": 1962,
+            "imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL7XwB2znvIHN0y-p_Bnvo9WdXyt8hoI0fQw&s"
+
+        },
+        {
+           " nombre": "Iron Man",
+            "nombre_real": "Tony Stark",
+            "biografia": "Un genio, multimillonario y filántropo que lucha contra el crimen con su armadura.",
+           " resistencia": "Media",
+            "fuerza": "Alta",
+            "anio_aparicion": 1963,
+            "imagen":"https://image.api.playstation.com/vulcan/img/rnd/202010/2716/M2WqznjK7MWhViJNteq0TE3I.png"
+        }
+    
+     ]
